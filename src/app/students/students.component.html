@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">Menu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="student">Students</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h3 class="text-center mt-3">Add Students</h3>
+    <div class="outerDiv">
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Student Name</mat-label>
+                    <input matInput placeholder="Student Name" name="studentName" id="studentName" [(ngModel)]="studentName">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Phone Number" name="phone" id="phone" [(ngModel)]="phone">
+                    <mat-icon matSuffix>settings_phone</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Department</mat-label>
+                    <input matInput placeholder="Department" name="department" id="department" [(ngModel)]="department">
+                    <mat-icon matSuffix>import_contacts</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Semester</mat-label>
+                    <input matInput placeholder="Semester" name="semester" id="semester" [(ngModel)]="semester">
+                    <mat-icon matSuffix>how_to_vote</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn1" (click)="storeIt()">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-3 myTable">
+     
+    <table class="flatTable">
+
+        <tr class="headingTr">
+            <td>#</td>
+            <td>Student Name</td>
+            <td>Phone Number</td>
+            <td>Department</td>
+            <td>Semester</td>
+            <td>Action</td>
+        </tr>
+        
+        <tr *ngFor="let list of students; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{list.studentName}}</td>
+            <td>{{list.phone}}</td>
+            <td>{{list.department}}</td>
+            <td>{{list.semester}}</td>
+            <td class="delete">
+                <mat-icon (click)="deleteIt()">delete_forever</mat-icon>
+            </td>
+        </tr>
+        
+    </table>
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+</div>
